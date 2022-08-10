@@ -2,10 +2,10 @@
 import express, { Request, Response } from 'express'
 import https from 'https'
 const router = express()
-const SLACK_HOOK_URL = process.env.SLACK_HOOK_URL ?? ''
-
 // middleware
 // router.use()
+const SLACK_HOOK_URL = process.env.SLACK_HOOK_URL ?? ''
+const WebHookURL = 'https://hooks.slack.com/services/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'
 /**
  * @param webhookURL
  * @param message
@@ -74,7 +74,7 @@ type reqData = {
 router.get('/send', async (req: Request, res: Response): Promise<void> => {
   const request = req as unknown as reqData
 
-  sendSlackMessage(SLACK_HOOK_URL, request)
+  sendSlackMessage(WebHookURL, request)
     .then(data => {
       res.send({
         code: data.statusCode,
