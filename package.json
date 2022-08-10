@@ -1,6 +1,6 @@
 {
   "name": "warn-issue",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Slack 錯誤提示區",
   "main": "index.js",
   "type": "module",
