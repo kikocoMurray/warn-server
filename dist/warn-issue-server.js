@@ -23141,9 +23141,6 @@ var sendSlackMessage = (webhookURL, message) => {
 router.get("/send", async (req, res) => {
   const request = req;
   sendSlackMessage(SLACK_HOOK_URL, request).then((data) => {
-    console.log(
-      SLACK_HOOK_URL
-    );
     res.send({
       code: data.statusCode,
       result: {
