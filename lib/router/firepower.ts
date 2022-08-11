@@ -77,6 +77,10 @@ router.get('/send', async (req: Request, res: Response): Promise<void> => {
 
   sendSlackMessage(SLACK_HOOK_URL, request)
     .then(data => {
+      console.log(
+        SLACK_HOOK_URL,
+        data
+      )
       res.send({
         code: data.statusCode,
         result: {
