@@ -23091,7 +23091,8 @@ var import_express2 = __toESM(require_express2(), 1);
 var import_express = __toESM(require_express2(), 1);
 var import_https = __toESM(require("https"), 1);
 var router = (0, import_express.default)();
-var WebHookURL = "https://hooks.slack.com/services/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";
+console.log(process.env.SLACK_HOOK_URL);
+var SLACK_HOOK_URL = process.env.SLACK_HOOK_URL ?? "";
 var sendSlackMessage = (webhookURL, message) => {
   return new Promise((resolve, reject) => {
     const options = {
@@ -23139,7 +23140,10 @@ var sendSlackMessage = (webhookURL, message) => {
 };
 router.get("/send", async (req, res) => {
   const request = req;
-  sendSlackMessage(WebHookURL, request).then((data) => {
+  sendSlackMessage(SLACK_HOOK_URL, request).then((data) => {
+    console.log(
+      SLACK_HOOK_URL
+    );
     res.send({
       code: data.statusCode,
       result: {
